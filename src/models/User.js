@@ -45,8 +45,8 @@ const UserSchema = new mongoose.Schema({
 });
 
 UserSchema.pre("save", async function (next) {
-  const hash = await bcryptjs.hash(this.senha, 10);
-  this.senha = hash;
+  const hashSenha = await bcryptjs.hash(this.senha, 10);
+  this.senha = hashSenha;
   next();
 });
 
