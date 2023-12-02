@@ -9,7 +9,7 @@ const router = express.Router();
 const generateToken = (user = {}) => {
   return jwt.sign(
     {
-      _id: user._id,
+      id: user.id,
     },
     authConfig.secret,
     {
