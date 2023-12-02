@@ -11,6 +11,6 @@ app.use(express.json());
 app.use("/auth", AuthController);
 app.use("/logged", authenticateMiddleware, LoggedController);
 
-app.listen(3001, () => {
-  console.log("Server is running");
-});
+let server = app.listen(3001);
+
+module.exports = { app, server };
