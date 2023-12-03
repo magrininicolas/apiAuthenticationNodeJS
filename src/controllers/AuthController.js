@@ -57,6 +57,8 @@ router.post("/signin", async (req, res) => {
     });
   }
 
+  user.ultimo_login = Date.now();
+
   return res.json({
     id: user.id,
     data_criacao: user.data_criacao,

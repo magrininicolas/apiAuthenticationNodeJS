@@ -11,6 +11,10 @@ app.use(express.json());
 app.use("/auth", AuthController);
 app.use("/logged", authenticateMiddleware, LoggedController);
 
-let server = app.listen(3001);
+app.use((req, res, next) => {
+  res.status(404).json({ mensagem: "Endpoint não encontrado"});
+});
 
-module.exports = { app, server };
+app.listen(3001);
+
+module.exports = app;
